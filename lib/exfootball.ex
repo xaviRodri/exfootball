@@ -114,7 +114,7 @@ defmodule Exfootball do
   end
 
   @doc """
-  Gets / Inserts an Exfootball.Team entry from / into the database
+  Gets / Inserts an Exfootball.Team entry from / into the database.
   """
   def find_or_create_team(entry) do
     case(Exfootball.Repo.get_by(Exfootball.Team, name: entry)) do
@@ -135,7 +135,7 @@ defmodule Exfootball do
   end
 
   @doc """
-  Gets / Inserts an Exfootball.Sesion entry from / into the database
+  Gets / Inserts an Exfootball.Season entry from / into the database.
   """
   def find_or_create_season(entry) do
     case(Exfootball.Repo.get_by(Exfootball.Season, name: entry)) do
@@ -156,7 +156,7 @@ defmodule Exfootball do
   end
 
   @doc """
-  Gets / Inserts an Exfootball.Division entry from / into the database
+  Gets / Inserts an Exfootball.Division entry from / into the database.
   """
   def find_or_create_division(entry) do
     case(Exfootball.Repo.get_by(Exfootball.Division, name: entry)) do
@@ -176,6 +176,9 @@ defmodule Exfootball do
     |> Exfootball.Repo.insert()
   end
 
+  @doc """
+  Gets a list of matches that were played in a season.
+  """
   def get_matches_from_season(season) do
     season = Exfootball.Repo.get_by!(Exfootball.Season, name: season)
 
@@ -202,6 +205,9 @@ defmodule Exfootball do
     _err -> "no matches found"
   end
 
+  @doc """
+  Gets a list of matches of a concrete division that were played in a season.
+  """
   def get_matches_from_season(season, division) do
     season = Exfootball.Repo.get_by!(Exfootball.Season, name: season)
     division = Exfootball.Repo.get_by!(Exfootball.Division, name: division)
@@ -230,6 +236,9 @@ defmodule Exfootball do
     _err -> "no matches found"
   end
 
+  @doc """
+  Gets the detail of a match.
+  """
   def get_match_detail(division, season, away_team, home_team) do
     season = Exfootball.Repo.get_by!(Exfootball.Season, name: season)
     division = Exfootball.Repo.get_by!(Exfootball.Division, name: division)

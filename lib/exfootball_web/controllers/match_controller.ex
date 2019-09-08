@@ -19,6 +19,9 @@ defmodule ExfootballWeb.MatchController do
     json(conn, %{results: results})
   end
 
+  @doc """
+  Gets the detail of a match, and returns it as JSON.
+  """
   def get_pair_detail(conn, %{
         "division" => division,
         "season" => season,
