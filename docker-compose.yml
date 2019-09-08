@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+
+  api:
+    build: .
+    command: mix phx.server
+    # command: ["sleep", "infinity"] Use this command if you want to enter to the service
+    volumes:
+      - .:/app
+    ports:
+      - 4000:4000
+    depends_on:
+      - db
