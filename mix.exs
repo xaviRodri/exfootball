@@ -51,9 +51,9 @@ defmodule Exfootball.MixProject do
       # CSV: csv parser & encoder
       {:csv, "~> 2.3"},
       # Credo: code analysis tool
-      {:credo, "~> 1.1.4", only: :dev},
+      # {:credo, "~> 1.1.4", only: :dev},
       # ExCoveralls: coverage report tool
-      {:excoveralls, "~> 0.11.2", only: [:test, :dev]},
+      # {:excoveralls, "~> 0.11.2", only: [:test, :dev]},
       # Timex: dateTime utils
       {:timex, "~> 3.6"}
     ]
